@@ -1,1 +1,20 @@
-/* test */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat", sans-serif;
+
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.nav-link {
+  color: black;
+}
+  
+  
+
+  
