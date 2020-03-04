@@ -1,7 +1,11 @@
-const keyWeather = "198e7cd123c38028748d31ffb347ffa7";
-const weatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=denver&appid=" + keyWeather;
+//build weather information
 
+const key= "198e7cd123c38028748d31ffb347ffa7";
+// const weatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+ search +"&appid=" + keyWeather;
 
+$(".btn").click(function () {
+    let search = $(this).prev().val()
+    const weatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+ search +"&appid=" + key;
 
 $.ajax({
     url: weatherQueryURL,
@@ -11,9 +15,10 @@ $.ajax({
 
     console.log(responseWeather);
 });
+});
 
-const keyLocalEvents = "9zmr4wz97r5l4jenh85ap1enclfnccwf";
-const localQueryURL = "https://www.triposo.com/api/20190906/location.json?id=Denver&account=U9R2XMW3&token=" + keyLocalEvents;
+//build local events information
+const localQueryURL = "https://www.triposo.com/api/20190906/location.json?id=Denver&account=U9R2XMW3&token=" + key;
 
 $.ajax({
     url: localQueryURL,
