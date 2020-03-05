@@ -6,8 +6,14 @@ $(document).ready(function () {
 
     $(".searchBtn").click(function () {
         let search = $(".form-control").val()
+        let searchFirstChar = search.slice(0,1);
+        let firstCharCap = searchFirstChar.toUpperCase();
+        let searchRest = search.slice(1, search.length);
+        
+        let searchFinal = firstCharCap + searchRest
 
-        const weatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + search + "&appid=" + key;
+
+        const weatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchFinal + "&appid=" + key;
         $.ajax({
                 url: weatherQueryURL,
                 method: "GET"
@@ -20,7 +26,7 @@ $(document).ready(function () {
 
         //build local events information
         const localKey = "9zmr4wz97r5l4jenh85ap1enclfnccwf"
-        const localQueryURL = "https://www.triposo.com/api/20190906/location.json?id=" + search + "&account=U9R2XMW3&token=" + localKey;
+        const localQueryURL = "https://www.triposo.com/api/20190906/location.json?id=" + searchFinal + "&account=U9R2XMW3&token=" + localKey;
 
         $.ajax({
                 url: localQueryURL,
