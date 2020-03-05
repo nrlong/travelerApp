@@ -2,14 +2,14 @@ $(document).ready(function () {
 
   //keypress-enter
   
-    $(".btn").keypress(function(event) { 
+    $("#keypress").keypress(function(event) { 
 	
         if (event.keyCode === 13) { 
             event.preventDefault();
-            $(".btn").click(); 
+           console.log("keypress");
         } 
     });
-
+    
     //build weather information
 
     const key = "198e7cd123c38028748d31ffb347ffa7";
