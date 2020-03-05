@@ -25,8 +25,15 @@ nav {
  margin-top: 20px;
 }
 
+.row {
+  
+}
+
 .jumbotron {
   background-color: rgb(199, 158, 47);
+  width: 800px;
+  height: 800px;
+   
 }
   
 .lead {
