@@ -6,7 +6,7 @@ $(document).ready(function () {
 	
         if (event.keyCode === 13) { 
             event.preventDefault();
-           console.log("keypress");
+           $(".searchBtn").click();
         } 
     });
     
