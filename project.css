@@ -13,8 +13,7 @@ body {
 
 #keypress {
   margin-top: 20px;
-  text-align: center;
-}
+  position: relative;
 
 .row {
   
