@@ -11,18 +11,9 @@ body {
   line-height: 1;
 }
 
-nav {
-  font-family: 'Poppins';
-  font-weight: bolder;
-  font-size: 20px;
-}
-
-.nav-link {
-  color: black;
-}
-  
-#history {
- margin-top: 20px;
+#keypress {
+  margin-top: 20px;
+  text-align: center;
 }
 
 .row {
