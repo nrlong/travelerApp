@@ -25,15 +25,22 @@ nav {
  margin-top: 20px;
 }
 
-.row {
-  
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .jumbotron {
   background-color: rgb(199, 158, 47);
   width: 800px;
   height: 800px;
-   
+  text-align: center;
+  display: inline-block;
+}
+
+.carousel {
+  height: 400;
 }
   
 .lead {
@@ -42,5 +49,3 @@ nav {
   font-weight: bold;
   color: rgb(23, 228, 228);
 }
-
-  
