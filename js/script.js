@@ -43,6 +43,20 @@ $(document).ready(function () {
                 let cityCountry = responseInfo.country_id;
                 let citySnip = responseInfo.snippet;
 
+                
+                let currentCity = $("#currentCity");
+                let card = $("<div>").attr("class","card");
+                let cardBody = $("<div>").attr("class","card-body").attr("id","localAttractions");
+                let cardTitle = $("<h5>").attr("class","card-title eventCard").text(cityName);
+                let cardSub = $("<h6>").attr("class","card-subtitle mb-2 text-muted eventCardSub").text(cityParent);
+                let cardDescription = $("<p>").attr("class","card-text eventCardText").text(citySnip);
+                let link1 = $("<a>").attr("href", responseInfo.attribution[0].url).text(responseInfo.attribution[0].source_id);
+                
+                currentCity.append(card);
+                card.append(cardBody);
+                cardBody.append(cardTitle, cardSub, cardDescription, link1);
+                
+
                 console.log(citySnip);
                 console.log(cityCountry);
                 console.log(cityParent)
