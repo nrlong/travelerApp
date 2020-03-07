@@ -26,3 +26,5 @@ SO THAT I can plan a trip accordingly
 ```
 
 ## Acceptance Criteria
+
+When you search a city in the search bar by pressing 'enter' on your keyboard or clicking 'search arrow' you get the weather, local history, and events happening in that city. 
