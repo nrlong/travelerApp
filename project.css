@@ -9,28 +9,18 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  min-height: 100vh;
 }
 
 #keypress {
   margin-top: 20px;
   position: relative;
-
-.row {
-  
 }
 
-.jumbotron {
-  background-color: rgb(199, 158, 47);
-  width: 800px;
-  height: 800px;
-   
+.card {
+  box-shadow: 0 0 20px #00000060;
 }
   
-.lead {
-  text-align: left;
-  margin-left: 35px;
-  font-weight: bold;
-  color: rgb(23, 228, 228);
-}
+
 
   
