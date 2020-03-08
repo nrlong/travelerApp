@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   //keypress-enter
   
     $("#keypress").keypress(function(event) { 
@@ -12,18 +11,23 @@ $(document).ready(function () {
     
     //build weather information
 
-    const key = "198e7cd123c38028748d31ffb347ffa7";
-
-    $(".searchBtn").click(function () {
+    $(".searchBtn").click(function(event){
+        event.preventDefault();
         let search = $(".form-control").val()
         let searchFirstChar = search.slice(0,1);
         let firstCharCap = searchFirstChar.toUpperCase();
         let searchRest = search.slice(1, search.length);
         
-        let searchFinal = firstCharCap + searchRest
+        searchFinal = firstCharCap + searchRest;
+        localSearch();
+        poi();
+
+    })
+
+    
         
             
-            
+        function localSearch () {   
 
 
         //build local events information
@@ -42,6 +46,11 @@ $(document).ready(function () {
                 let cityParent = responseInfo.parent_id;
                 let cityCountry = responseInfo.country_id;
                 let citySnip = responseInfo.snippet;
+
+                lat = responseInfo.coordinates.latitude;
+                lon = responseInfo.coordinates.longitude;
+
+                console.log(lon, lat);
 
                 
                 let currentCity = $("#currentCity");
@@ -63,8 +72,38 @@ $(document).ready(function () {
                 console.log(cityName);
 
                 console.log(responseLocal);
+
+                localHighlights();
+            })
+            //local highlights (nightlife)
+            function localHighlights(){
+                const localKey = "9zmr4wz97r5l4jenh85ap1enclfnccwf"
+                const localHighlightsURL = "https://www.triposo.com/api/20190906/local_highlights.json?latitude=" + lat + "&longitude="+ lon +"&account=U9R2XMW3&token=" + localKey;
+    
+                $.ajax({
+                    url: localHighlightsURL,
+                    method: "GET"
+                })
+                .then(function(responseLocalHighlights){
+                    console.log(responseLocalHighlights)
+                })
+            }
+
+        } 
+        //create points of interest call 
+        function poi(){
+            const localKey = "9zmr4wz97r5l4jenh85ap1enclfnccwf"
+            const poiURL = "https://www.triposo.com/api/20190906/poi.json?location_id=" + searchFinal + "&account=U9R2XMW3&token=" + localKey;
+
+            $.ajax({
+                url: poiURL,
+                method: "GET"
+            })
+            .then(function(responsePoi){
+                console.log(responsePoi);
             })
 
-    });
+        }
 
-})
+      
+}   )
