@@ -9,7 +9,7 @@ $(document).ready(function () {
         } 
     });
     
-    //build weather information
+    //search function
 
     $(".searchBtn").click(function(event){
         event.preventDefault();
@@ -49,7 +49,7 @@ $(document).ready(function () {
 
                 console.log(lon, lat);
 
-                
+                //city information build
                 let currentCity = $("#currentCity");
                 let card = $("<div>").attr("class","card");
                 let cardBody = $("<div>").attr("class","card-body").attr("id","localAttractions");
@@ -97,7 +97,6 @@ $(document).ready(function () {
 
                     let infoLink = $(".infoLink");
                     infoLink.attr("href", responseLocalHighlights.results[0].pois[0].attribution[3].url).text(responseLocalHighlights.results[0].pois[0].attribution[3].source_id);
-
 
                 })
             }
