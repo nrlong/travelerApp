@@ -67,13 +67,15 @@
   </div>
 
  <!--Form for city searching-->
-  <div class="container-fluid" id="location">
-    <form id="keypress">
-      <div class="form-row">
-        <div class="col-6 text-center">
+  <div id="location">
+    <form  class="container-fluid" id="keypress">
+      <div class="form-row align-items-center">
+        <div class="col-lg-4 text-center">
           <input type="text" class="form-control form-control-lg" placeholder="City and State...">
         </div>
-        <button type="button" class="btn btn-primary searchBtn">Submit</button>
+        <div class="col-auto my-1">
+          <button type="button" class="btn searchBtn"><i class="far fas-arrow-right"></i></button>
+        </div>
         <!--div for current weather-->
         <div class="col-lg-8 text-center"> 
           <div id="currentCity" class="mt-4"></div>

@@ -20,5 +20,33 @@ body {
 .card {
   box-shadow: 0 0 20px #00000060;
 }
+
+.form-control {
+  border-radius: 40px;
+  background: #f1f1f199;
+  position: relative;
+  font-size: 20px;
+  width: 100%;
+  margin-top: 20px;
+ 
+}
+
+.searchBtn {
+  background: #1b0e58;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   
+  right: 8px;
+  top: 23px;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  transition: 0.3s linear;
+}
+
+.btn:hover {
+  opacity: .5;
+}
 
