@@ -22,10 +22,7 @@ $(document).ready(function () {
         localSearch();
         poi();
 
-    })
-
-    
-        
+    })  
             
         function localSearch () {   
 
@@ -57,11 +54,11 @@ $(document).ready(function () {
                 let card = $("<div>").attr("class","card");
                 let cardBody = $("<div>").attr("class","card-body").attr("id","localAttractions");
                 let cardTitle = $("<h5>").attr("class","card-title eventCard").text(cityName);
-                let cardSub = $("<h6>").attr("class","card-subtitle mb-2 text-muted eventCardSub").text(cityParent);
+                let cardSub = $("<h6>").attr("class","card-subtitle mb-2 text-muted eventCardSub").text(cityCountry);
                 let cardDescription = $("<p>").attr("class","card-text eventCardText").text(citySnip);
                 let link1 = $("<a>").attr("href", responseInfo.attribution[0].url).text(responseInfo.attribution[0].source_id);
                 
-                currentCity.append(card);
+                currentCity.prepend(card);
                 card.append(cardBody);
                 cardBody.append(cardTitle, cardSub, cardDescription, link1);
                 
@@ -75,7 +72,7 @@ $(document).ready(function () {
 
                 localHighlights();
             })
-            //local highlights (nightlife)
+            //local highlights (nightlife).  requires long and lat.  resason for embeded function.
             function localHighlights(){
                 const localKey = "9zmr4wz97r5l4jenh85ap1enclfnccwf"
                 const localHighlightsURL = "https://www.triposo.com/api/20190906/local_highlights.json?latitude=" + lat + "&longitude="+ lon +"&account=U9R2XMW3&token=" + localKey;
@@ -85,7 +82,23 @@ $(document).ready(function () {
                     method: "GET"
                 })
                 .then(function(responseLocalHighlights){
-                    console.log(responseLocalHighlights)
+                    console.log(responseLocalHighlights.results[0])
+                    let attraction = $(".eventCard");
+                    attraction.text(responseLocalHighlights.results[0].pois[0].name);
+                    
+                    let location = $(".eventCardSub")
+                    location.text(responseLocalHighlights.results[0].pois[0].location_id);
+
+                    let description = $(".eventCardText");
+                    description.text(responseLocalHighlights.results[0].pois[0].snippet);
+
+                    let ticketLink = $(".eventLink");
+                    ticketLink.attr("href", responseLocalHighlights.results[0].pois[0].booking_info.vendor_object_url).text("Book a Visit!");
+
+                    let infoLink = $(".infoLink");
+                    infoLink.attr("href", responseLocalHighlights.results[0].pois[0].attribution[3].url).text(responseLocalHighlights.results[0].pois[0].attribution[3].source_id);
+
+
                 })
             }
 
@@ -93,7 +106,7 @@ $(document).ready(function () {
         //create points of interest call 
         function poi(){
             const localKey = "9zmr4wz97r5l4jenh85ap1enclfnccwf"
-            const poiURL = "https://www.triposo.com/api/20190906/poi.json?location_id=" + searchFinal + "&account=U9R2XMW3&token=" + localKey;
+            const poiURL = "https://www.triposo.com/api/20190906/article.json?location_ids=" + searchFinal + "&account=U9R2XMW3&token=" + localKey;
 
             $.ajax({
                 url: poiURL,
