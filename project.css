@@ -18,7 +18,11 @@ body {
 }
 
 .card {
-  box-shadow: 0 0 20px #00000060;
+  box-shadow: 0 0 20px #57035a60;
 }
   
+.container-fluid {
+  border: solid 6px;
+}
+}
 
