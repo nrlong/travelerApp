@@ -17,7 +17,9 @@ $(document).ready(function () {
         let searchFirstChar = search.slice(0,1);
         let firstCharCap = searchFirstChar.toUpperCase();
         let searchRest = search.slice(1, search.length);
-        
+        $("#events").empty();
+
+
         searchFinal = firstCharCap + searchRest;
         localSearch();
         poi();
@@ -53,9 +55,9 @@ $(document).ready(function () {
                 let currentCity = $("#currentCity");
                 let card = $("<div>").attr("class","card");
                 let cardBody = $("<div>").attr("class","card-body").attr("id","localAttractions");
-                let cardTitle = $("<h5>").attr("class","card-title eventCard").text(cityName);
-                let cardSub = $("<h6>").attr("class","card-subtitle mb-2 text-muted eventCardSub").text(cityCountry);
-                let cardDescription = $("<p>").attr("class","card-text eventCardText").text(citySnip);
+                let cardTitle = $("<h5>").attr("class","card-title cityCard").text(cityName);
+                let cardSub = $("<h6>").attr("class","card-subtitle mb-2 text-muted cityCardSub").text(cityCountry);
+                let cardDescription = $("<p>").attr("class","card-text cityCardText").text(citySnip);
                 let link1 = $("<a>").attr("href", responseInfo.attribution[0].url).text(responseInfo.attribution[0].source_id);
                 
                 currentCity.prepend(card);
@@ -83,20 +85,51 @@ $(document).ready(function () {
                 })
                 .then(function(responseLocalHighlights){
                     console.log(responseLocalHighlights.results[0])
+
+                    let poiResponse = responseLocalHighlights.results[0];
+
+                    let poiHouse = $("<div>").attr("class","card").attr("style", "width: 18rem;");
+                    let poiBody = $("<div>").attr("class","card-body").attr("id", "pointsOfInterest");
+                    poiHouse.append(poiBody);
+
+                    let poiTitle = $("<h5>").attr("class","card-title poiCard");
+                    poiTitle.text(poiResponse.pois[0].name);
+
+                    let poiSub = $("<h6>").attr("class", "card-subtitle mb-2 text-muted poiCardSub");
+                    poiSub.text(poiResponse.pois[0].location_id);
+
+                    let poiText = $("<p>").attr("class", "card-text poiCardText");
+                    poiText.text(poiResponse.pois[0].snippet);
+
+                    let poiImage = $("<img>").attr("src", poiResponse.pois[0].images[0].sizes.thumbnail.url);
+
+                    let poiMapLink = $("<a>").attr("href", poiResponse.pois[0].attribution[1].url);
+                    poiMapLink.text("Street Map");
+                    // poiBody.append(poiMapLink);
+
+                    let poiWiki = $("<a>").attr("href", poiResponse.pois[0].attribution[2].url);
+                    poiWiki.text("      Info");
+                    // poiBody.append(poiWiki);
+
+                    poiBody.append(poiTitle, poiSub,poiImage, poiText, poiMapLink, poiWiki);
+
+                    let poiDrop = $("#events");
+                    poiDrop.append(poiHouse);
+                    
                     let attraction = $(".eventCard");
-                    attraction.text(responseLocalHighlights.results[0].pois[0].name);
+                    attraction.text(responseLocal.pois[0].name);
                     
                     let location = $(".eventCardSub")
-                    location.text(responseLocalHighlights.results[0].pois[0].location_id);
+                    location.text(responseLocal.pois[0].location_id);
 
                     let description = $(".eventCardText");
-                    description.text(responseLocalHighlights.results[0].pois[0].snippet);
+                    description.text(responseLocal.pois[0].snippet);
 
                     let ticketLink = $(".eventLink");
-                    ticketLink.attr("href", responseLocalHighlights.results[0].pois[0].booking_info.vendor_object_url).text("Book a Visit!");
+                    ticketLink.attr("href", responseLocal.pois[0].attribution[1].url).text("Open Street Map");
 
                     let infoLink = $(".infoLink");
-                    infoLink.attr("href", responseLocalHighlights.results[0].pois[0].attribution[3].url).text(responseLocalHighlights.results[0].pois[0].attribution[3].source_id);
+                    infoLink.attr("href", responseLocal.pois[0].attribution[2].url).text(responseLocalHighlights.results[0].pois[0].attribution[2].source_id);
 
                 })
             }
@@ -112,7 +145,8 @@ $(document).ready(function () {
                 method: "GET"
             })
             .then(function(responsePoi){
-                console.log(responsePoi);
+                // console.log(responsePoi.results[0]);
+                
             })
 
         }
