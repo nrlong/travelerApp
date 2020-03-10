@@ -18,7 +18,30 @@ body {
 }
 
 .card {
-  box-shadow: 0 0 20px #00000060;
+  box-shadow: 0 0 20px #57035a60;
 }
   
+.container-fluid {
+  border: solid 6px;
+}
 
+#nate {
+  width: 55%;
+  height: 55%;
+  margin-left: 23%;
+  margin-top: 5%;
+  }
+
+#regina {
+  width: 55%;
+  height: 55%;
+  margin-left: 23%;
+  margin-top: 5%;
+}
+
+#rob {
+  width: 55%;
+  height: 55%;
+  margin-left: 23%;
+  margin-top: 5%;
+}
