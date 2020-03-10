@@ -95,16 +95,15 @@ $(document).ready(function () {
 
                     //check images
                     let poiImage = $("<img>");
-                    // let imageSearch = poiResponse.pois[i].images[0].sizes;
-
                     
-                    if (typeof poiResponse.pois[i].images[0].sizes === 'undefined'){
-                        poiImage.attr("src", "");
+                    if (poiResponse.pois[i].images[0] && poiResponse.pois[i].images[0].sizes){
+                        let imageSearch = poiResponse.pois[i].images[0].sizes;
+                        poiImage.attr("src", imageSearch.thumbnail.url);
                     }else{
-                        poiImage.attr("src", poiResponse.pois[i].images[0].sizes.thumbnail.url);
+                        poiImage.attr("src", "").attr("alt", "Image unavailable from source");
                     }
-                    // let imageSearch = poiResponse.pois[i].images[0].sizes;
-
+                    
+                    
                     poiBody.append(poiTitle, poiSub,poiImage, poiText);
 
                     let poiDrop = $("#events");
