@@ -25,6 +25,45 @@ body {
   border: solid 6px;
 }
 
+  box-shadow: 0 0 20px #00000060;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  font-family: "poppins";
+
+}
+
+.form-control {
+  border-radius: 40px;
+  background: #f1f1f199;
+  position: relative;
+  font-size: 20px;
+  width: 100%;
+}
+
+.searchBtn {
+  background: #574b90;
+  border: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  transition: 0.3s linear;
+}
+
+#searchBtn:hover {
+  opacity: .5;
+}
+
+img {
+  margin-bottom: 20px;
+}
+
 #nate {
   width: 55%;
   height: 55%;
