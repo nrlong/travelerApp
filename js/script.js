@@ -101,9 +101,8 @@ $(document).ready(function () {
                     if (typeof poiResponse.pois[i].images[0].sizes === 'undefined'){
                         poiImage.attr("src", "");
                     }else{
-
-                    }poiImage.attr("src", poiResponse.pois[i].images[0].sizes.thumbnail.url);
-                    
+                        poiImage.attr("src", poiResponse.pois[i].images[0].sizes.thumbnail.url);
+                    }
                     // let imageSearch = poiResponse.pois[i].images[0].sizes;
 
                     poiBody.append(poiTitle, poiSub,poiImage, poiText);
