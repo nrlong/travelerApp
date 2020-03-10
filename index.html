@@ -66,20 +66,19 @@
   </a>
   </div>
 
- <!--Form for city searching-->
-  <div class="container-fluid" id="location">
-    <form id="keypress">
-      <div class="form-row">
-        <div class="col-6 text-center">
-          <input type="text" class="form-control form-control-lg" placeholder="City and State...">
-        </div>
-        <button type="button" class="btn btn-primary searchBtn">Submit</button>
-        <!--div for current weather-->
-        <div class="col-lg-8 text-center"> 
+<!-- Search container -->
+<div class="container-fluid text-center"> 
+  <div class="row" id="keypress"> 
+      <div class="col-lg-3 pt-3 pb-3">  
+          <div class="input-group mb-3"> 
+              <input id="input" type="text" class="form-control" placeholder="City and State..." class="input-group-append">
+              <button id="searchBtn" class="btn searchBtn" type="button" id="button-addon2"><i class="fas fa-arrow-right"></i></button>
+          </div>
+      </div>
+      <div class="col-lg-9 text-center"> 
           <div id="currentCity" class="mt-4"></div>
-        </div> 
-     </form>
-  </div>
+      </div>  
+  </div> 
 
   <!-- Events -->
   <div class="mt-4 col-md-12" id="eventsCard">
