@@ -19,6 +19,11 @@ body {
 
 .card {
   box-shadow: 0 0 20px #00000060;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  font-family: "poppins";
+
 }
 
 .form-control {
@@ -46,5 +51,9 @@ body {
 
 #searchBtn:hover {
   opacity: .5;
+}
+
+img {
+  margin-bottom: 20px;
 }
 
