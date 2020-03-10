@@ -10,11 +10,20 @@ body {
   font-size: 16px;
   line-height: 1;
   min-height: 100vh;
+  background-color: rgb(62, 172, 223);
 }
 
 #keypress {
   margin-top: 20px;
   position: relative;
+}
+
+.card {
+  box-shadow: 0 0 20px #57035a60;
+}
+  
+.container-fluid {
+  border: solid 6px;
 }
 
 .card {
@@ -62,3 +71,23 @@ img {
   margin-bottom: 20px;
 }
 
+#nate {
+  width: 55%;
+  height: 55%;
+  margin-left: 23%;
+  margin-top: 5%;
+  }
+
+#regina {
+  width: 55%;
+  height: 55%;
+  margin-left: 23%;
+  margin-top: 5%;
+}
+
+#rob {
+  width: 55%;
+  height: 55%;
+  margin-left: 23%;
+  margin-top: 5%;
+}
