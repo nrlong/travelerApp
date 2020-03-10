@@ -31,10 +31,15 @@ body {
   margin-bottom: 20px;
   margin-right: 20px;
   font-family: "poppins";
+  font-size: 20px;
 
 }
 
-.form-control {
+#eventsH5 {
+  font-size: 40px;
+}
+
+#input {
   border-radius: 40px;
   background: #f1f1f199;
   position: relative;
@@ -48,7 +53,7 @@ body {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  position: absolute;
+   position: absolute;
   right: 4px;
   top: 4px;
   cursor: pointer;
@@ -57,7 +62,7 @@ body {
   transition: 0.3s linear;
 }
 
-#searchBtn:hover {
+.searchBtn:hover {
   opacity: .5;
 }
 
