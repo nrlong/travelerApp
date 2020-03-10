@@ -10,6 +10,7 @@ body {
   font-size: 16px;
   line-height: 1;
   min-height: 100vh;
+  background-color: rgb(62, 172, 223);
 }
 
 #keypress {
