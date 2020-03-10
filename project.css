@@ -26,6 +26,7 @@ body {
   border: solid 6px;
 }
 
+.card {
   box-shadow: 0 0 20px #00000060;
   margin-top: 20px;
   margin-bottom: 20px;
