@@ -49,8 +49,6 @@ $(document).ready(function () {
                 lat = responseInfo.coordinates.latitude;
                 lon = responseInfo.coordinates.longitude;
 
-                console.log(lon, lat);
-
                 //city information build
                 let currentCity = $("#currentCity");
                 let card = $("<div>").attr("class","card");
@@ -64,14 +62,6 @@ $(document).ready(function () {
                 card.append(cardBody);
                 cardBody.append(cardTitle, cardSub, cardDescription, link1);
                 
-
-                console.log(citySnip);
-                console.log(cityCountry);
-                console.log(cityParent)
-                console.log(cityName);
-
-                console.log(responseLocal);
-
                 localHighlights();
             })
             //local highlights (nightlife).  requires long and lat.  resason for embeded function.
@@ -86,7 +76,7 @@ $(document).ready(function () {
                 .then(function(responseLocalHighlights){
                     console.log(responseLocalHighlights.results[0])
 
-                    for (let i=0; i < 8; i++){
+                    for (let i=0; i < 10; i++){
 
                     let poiResponse = responseLocalHighlights.results[0];
 
@@ -103,35 +93,24 @@ $(document).ready(function () {
                     let poiText = $("<p>").attr("class", "card-text poiCardText");
                     poiText.text(poiResponse.pois[i].snippet);
 
-                    let poiImage = $("<img>").attr("src", poiResponse.pois[i].images[0].sizes.thumbnail.url);
+                    //check images
+                    let poiImage = $("<img>");
+                    // let imageSearch = poiResponse.pois[i].images[0].sizes;
 
-                    // let poiMapLink = $("<a>").attr("href", poiResponse.pois[0].attribution[1].url);
-                    // poiMapLink.text("Street Map");
-                    // poiBody.append(poiMapLink);
+                    
+                    if (typeof poiResponse.pois[i].images[0].sizes === 'undefined'){
+                        poiImage.attr("src", "");
+                    }else{
 
-                    // let poiWiki = $("<a>").attr("href", poiResponse.pois[0].attribution[2].url);
-                    // poiWiki.text("      Info");
-                    // poiBody.append(poiWiki);
+                    }poiImage.attr("src", poiResponse.pois[i].images[0].sizes.thumbnail.url);
+                    
+                    // let imageSearch = poiResponse.pois[i].images[0].sizes;
 
                     poiBody.append(poiTitle, poiSub,poiImage, poiText);
 
                     let poiDrop = $("#events");
                     poiDrop.append(poiHouse);
                     
-                    // let attraction = $(".eventCard");
-                    // attraction.text(responseLocal.pois[0].name);
-                    
-                    // let location = $(".eventCardSub")
-                    // location.text(responseLocal.pois[0].location_id);
-
-                    // let description = $(".eventCardText");
-                    // description.text(responseLocal.pois[0].snippet);
-
-                    // let ticketLink = $(".eventLink");
-                    // ticketLink.attr("href", responseLocal.pois[0].attribution[1].url).text("Open Street Map");
-
-                    // let infoLink = $(".infoLink");
-                    // infoLink.attr("href", responseLocal.pois[0].attribution[2].url).text(responseLocalHighlights.results[0].pois[0].attribution[2].source_id);
                     }
                 })
             }
@@ -153,5 +132,4 @@ $(document).ready(function () {
 
         }
 
-      
 }   )
