@@ -38,11 +38,11 @@ $(document).ready(function () {
                 method: "GET"
             })
             .then(function (responseLocal) {
+                console.log(responseLocal);
 
                 let responseInfo = responseLocal.results[0];
 
                 let cityName = responseInfo.name;
-                let cityParent = responseInfo.parent_id;
                 let cityCountry = responseInfo.country_id;
                 let citySnip = responseInfo.snippet;
 
@@ -55,12 +55,13 @@ $(document).ready(function () {
                 let cardBody = $("<div>").attr("class","card-body").attr("id","localAttractions");
                 let cardTitle = $("<h5>").attr("class","card-title cityCard").text(cityName);
                 let cardSub = $("<h6>").attr("class","card-subtitle mb-2 text-muted cityCardSub").text(cityCountry);
+                let cardImage = $("<img>").attr("src", responseInfo.images[1].sizes.medium.url);
                 let cardDescription = $("<p>").attr("class","card-text cityCardText").text(citySnip);
                 let link1 = $("<a>").attr("href", responseInfo.attribution[0].url).text(responseInfo.attribution[0].source_id);
                 
                 currentCity.prepend(card);
                 card.append(cardBody);
-                cardBody.append(cardTitle, cardSub, cardDescription, link1);
+                cardBody.append(cardTitle, cardSub,cardImage, cardDescription, link1);
                 
                 localHighlights();
             })
@@ -93,14 +94,15 @@ $(document).ready(function () {
                     let poiText = $("<p>").attr("class", "card-text poiCardText");
                     poiText.text(poiResponse.pois[i].snippet);
 
-                    //check images
+                    
                     let poiImage = $("<img>");
                     
+                    //check if images are available before generating 
                     if (poiResponse.pois[i].images[0] && poiResponse.pois[i].images[0].sizes){
                         let imageSearch = poiResponse.pois[i].images[0].sizes;
                         poiImage.attr("src", imageSearch.thumbnail.url);
                     }else{
-                        poiImage.attr("src", "").attr("alt", "Image unavailable from source");
+                        poiImage.attr("src", "/images/noImage.jpg").attr("id", "noImage");
                     }
                     
                     
