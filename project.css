@@ -13,6 +13,11 @@ body {
   background-color: rgb(62, 172, 223);
 }
 
+#carouselExampleIndicators {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
 #keypress {
   margin-top: 20px;
   position: relative;
@@ -46,6 +51,11 @@ body {
   position: relative;
   font-size: 20px;
   width: 100%;
+}
+
+#eventscard {
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 .searchBtn {
