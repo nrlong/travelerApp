@@ -22,12 +22,10 @@ $(document).ready(function () {
 
         searchFinal = firstCharCap + searchRest;
         localSearch();
-        poi();
+        // poi();
 
-    })  
-            
+    })              
         function localSearch () {   
-
 
         //build local events information
         const localKey = "9zmr4wz97r5l4jenh85ap1enclfnccwf"
@@ -55,7 +53,7 @@ $(document).ready(function () {
                 let cardBody = $("<div>").attr("class","card-body").attr("id","localAttractions");
                 let cardTitle = $("<h5>").attr("class","card-title cityCard").text(cityName);
                 let cardSub = $("<h6>").attr("class","card-subtitle mb-2 text-muted cityCardSub").text(cityCountry);
-                let cardImage = $("<img>").attr("src", responseInfo.images[1].sizes.medium.url);
+                let cardImage = $("<img>").attr("src", responseInfo.images[1].sizes.medium.url).attr("id", "searchImage");
                 let cardDescription = $("<p>").attr("class","card-text cityCardText").text(citySnip);
                 let link1 = $("<a>").attr("href", responseInfo.attribution[0].url).text(responseInfo.attribution[0].source_id);
                 
@@ -100,7 +98,7 @@ $(document).ready(function () {
                     //check if images are available before generating 
                     if (poiResponse.pois[i].images[0] && poiResponse.pois[i].images[0].sizes){
                         let imageSearch = poiResponse.pois[i].images[0].sizes;
-                        poiImage.attr("src", imageSearch.thumbnail.url);
+                        poiImage.attr("src", imageSearch.thumbnail.url).attr("class", "thumbImage");
                     }else{
                         poiImage.attr("src", "/images/noImage.jpg").attr("id", "noImage");
                     }
@@ -118,19 +116,19 @@ $(document).ready(function () {
 
         } 
         //create points of interest call 
-        function poi(){
-            const localKey = "9zmr4wz97r5l4jenh85ap1enclfnccwf"
-            const poiURL = "https://www.triposo.com/api/20190906/article.json?location_ids=" + searchFinal + "&account=U9R2XMW3&token=" + localKey;
+        // function poi(){
+        //     const localKey = "9zmr4wz97r5l4jenh85ap1enclfnccwf"
+        //     const poiURL = "https://www.triposo.com/api/20190906/article.json?location_ids=" + searchFinal + "&account=U9R2XMW3&token=" + localKey;
 
-            $.ajax({
-                url: poiURL,
-                method: "GET"
-            })
-            .then(function(responseArticle){
-                console.log(responseArticle);
+        //     $.ajax({
+        //         url: poiURL,
+        //         method: "GET"
+        //     })
+        //     .then(function(responseArticle){
+        //         console.log(responseArticle);
                 
-            })
+        //     })
 
-        }
+        // }
 
 }   )
