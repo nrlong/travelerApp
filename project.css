@@ -114,3 +114,7 @@ img {
   position: absolute;
   right: 0;
 }
+
+#searchImage, .thumbImage{
+  width: 75%;
+}
