@@ -98,3 +98,19 @@ img {
 #noImage{
   width: 60%;
 }
+
+.link1 {
+  font-size: 1rem;
+  margin: .5rem;
+  bottom: 0px;
+  position: absolute;
+  left: 0;
+}
+
+.link2{
+  font-size: 1rem;
+  margin: .5rem;
+  bottom: 0px;
+  position: absolute;
+  right: 0;
+}
