@@ -105,8 +105,9 @@ $(document).ready(function () {
                         poiImage.attr("src", "/images/noImage.jpg").attr("id", "noImage");
                     }
                     
-                    
-                    poiBody.append(poiTitle, poiSub,poiImage, poiText);
+                    let poiLink1 = $("<a>").attr("href", poiResponse.pois[i].attribution[0].url).text(poiResponse.pois[i].attribution[0].source_id).attr("class", "link1");
+                    let poiLink2 = $("<a>").attr("href", poiResponse.pois[i].attribution[1].url).text(poiResponse.pois[i].attribution[1].source_id).attr("class", "link2");
+                    poiBody.append(poiTitle, poiSub,poiImage, poiText, poiLink1, poiLink2);
 
                     let poiDrop = $("#events");
                     poiDrop.append(poiHouse);
